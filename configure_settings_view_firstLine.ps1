@@ -21,7 +21,6 @@ Set-Itemproperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\P
 #todo: accent color?
 
 #Turn off Cortana
-Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Cortana
 Set-Itemproperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Cortana' -Name 'IsAvailable' -value '0'
 Get-AppxPackage -allusers Microsoft.549981C3F5F10 | Remove-AppxPackage
 
@@ -44,14 +43,7 @@ if ((Test-Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer') -eq $false)
     Set-Itemproperty -path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer' -Name 'HideRecentlyAddedApps' -value '0'
 }
 
-
-Set-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManage' -Name 'SubscribedContent-338388Enabled' -value '0' -Type "DWord"
-Set-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManage' -Name 'SubscribedContent-338389Enabled' -value '0' -Type "DWord"
-Set-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManage' -Name 'SubscribedContent-338393Enabled' -value '0' -Type "DWord"
-Set-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManage' -Name 'SubscribedContent-338394Enabled' -value '0' -Type "DWord"
-Set-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManage' -Name 'SubscribedContent-338396Enabled' -value '0' -Type "DWord"
-
-
+Set-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager' -Name 'SystemPaneSuggestionsEnabled' -value '0' -Type "DWord"
 
 #LaunchTo
 $registryPath = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"

@@ -66,3 +66,4 @@ choco install protonvpn
 
 
 #todo: kaspersky
+#todo: Garmin
