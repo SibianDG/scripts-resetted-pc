@@ -9,6 +9,9 @@ if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 	exit 0
 }
 
+$Desktop = Read-Host -Prompt 'Desktop? Y/N'
+$Desktop = $Desktop.ToUpper()
+
 #Install Choco
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
@@ -43,10 +46,16 @@ choco install gitkraken
 choco install droidcamclient
 choco install garmin-express
 choco install laragon.install
-choco install minecraft
 choco install protonvpn
 choco install recuva
 choco install speedtest
+
+if ($Desktop.ToUpper() -eq "Y") {
+    choco install evoluentmousemanager
+    choco install minecraft
+
+}
+
 
 #nog meer doen?
 choco install wsl-ubuntu-1804

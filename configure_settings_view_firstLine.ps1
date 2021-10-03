@@ -23,6 +23,7 @@ Set-Itemproperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\P
 #Turn off Cortana
 Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Cortana
 Set-Itemproperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Cortana' -Name 'IsAvailable' -value '0'
+Get-AppxPackage -allusers Microsoft.549981C3F5F10 | Remove-AppxPackage
 
 
 #Options Explorer
