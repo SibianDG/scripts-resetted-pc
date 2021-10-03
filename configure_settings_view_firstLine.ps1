@@ -1,5 +1,12 @@
 ﻿cls
-
+if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(`
+	[Security.Principal.WindowsBuiltInRole] "Administrator"))
+{
+    Write-Warning "You have to run this Script with elevated privileges"
+    Write-Host "Press any key to exit the script"
+    read-host
+	exit 0
+}
 
 #Set ExecutionPolicy
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
@@ -27,12 +34,22 @@ Set-Itemproperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer
 Set-Itemproperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name 'ShowCortanaButton' -value '0'
 Set-Itemproperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name 'TaskbarAnimations' -value '1'
 
-
-if (Test-Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer' -eq $false){
-    
+#start menu
+if ((Test-Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer') -eq $false){
+    New-Item 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer' -Force | New-ItemProperty -Name HideRecentlyAddedApps -Value 1 -Force | Out-Null
 } else {
+    Set-Itemproperty -path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer' -Name 'HideRecentlyAddedApps' -value '1'
+    Set-Itemproperty -path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer' -Name 'HideRecentlyAddedApps' -value '1'
     Set-Itemproperty -path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer' -Name 'HideRecentlyAddedApps' -value '0'
 }
+
+
+Set-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManage' -Name 'SubscribedContent-338388Enabled' -value '0' -Type "DWord"
+Set-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManage' -Name 'SubscribedContent-338389Enabled' -value '0' -Type "DWord"
+Set-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManage' -Name 'SubscribedContent-338393Enabled' -value '0' -Type "DWord"
+Set-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManage' -Name 'SubscribedContent-338394Enabled' -value '0' -Type "DWord"
+Set-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManage' -Name 'SubscribedContent-338396Enabled' -value '0' -Type "DWord"
+
 
 
 #LaunchTo
@@ -155,6 +172,8 @@ $Name = "ShellFeedsTaskbarViewMode"
 $value = "2"
 Set-ItemProperty -Path $registryPath -Name $Name -Value $value
 
+#copies the hosts file
+Copy-Item -Path $PWD\extraFiles\hosts -Destination C:\Windows\System32\drivers\etc
 
 Write "Enable extra updates"
 Write "Show location of pointer when I press the CTRL key"

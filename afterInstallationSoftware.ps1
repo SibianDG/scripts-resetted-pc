@@ -1,4 +1,13 @@
-﻿Get-ChildItem $env:Public\Desktop\*.lnk | ForEach-Object { Remove-Item $_ }
+﻿if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(`
+	[Security.Principal.WindowsBuiltInRole] "Administrator"))
+{
+    Write-Warning "You have to run this Script with elevated privileges"
+    Write-Host "Press any key to exit the script"
+    read-host
+	exit 0
+}
+
+Get-ChildItem $env:Public\Desktop\*.lnk | ForEach-Object { Remove-Item $_ }
 $ErrorActionPreference = 'SilentlyContinue'
 Get-ChildItem $env:Public\Bureaublad\*.lnk | ForEach-Object { Remove-Item $_ }
 Remove-Item C:\Users\$env:UserName\Desktop\*lnk –Force 

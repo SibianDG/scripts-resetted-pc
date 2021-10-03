@@ -1,6 +1,13 @@
 ﻿cls
 
-
+if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(`
+	[Security.Principal.WindowsBuiltInRole] "Administrator"))
+{
+    Write-Warning "You have to run this Script with elevated privileges"
+    Write-Host "Press any key to exit the script"
+    read-host
+	exit 0
+}
 
 #Install Choco
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
