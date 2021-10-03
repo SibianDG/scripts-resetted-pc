@@ -171,3 +171,5 @@ Copy-Item -Path $PWD\extraFiles\hosts -Destination C:\Windows\System32\drivers\e
 Write "Enable extra updates"
 Write "Show location of pointer when I press the CTRL key"
 stop-process -name explorer -force
+
+sysdm.cpl
