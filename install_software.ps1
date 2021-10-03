@@ -53,7 +53,7 @@ choco install speedtest
 if ($Desktop.ToUpper() -eq "Y") {
     choco install evoluentmousemanager
     choco install minecraft
-
+	choco install icue
 }
 
 
@@ -64,6 +64,9 @@ choco install wsl-ubuntu-1804
 
 choco install protonvpn
 
+choco install mysql
 
 #todo: kaspersky
 #todo: Garmin
+#SQL Server
+#MYSQL
