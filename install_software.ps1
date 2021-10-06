@@ -49,6 +49,7 @@ choco install laragon.install
 choco install protonvpn
 choco install recuva
 choco install speedtest
+choco install signal
 
 if ($Desktop.ToUpper() -eq "Y") {
     choco install evoluentmousemanager
