@@ -32,24 +32,24 @@ choco install vscode.install
 choco install atom
 choco install virtualbox
 choco install microsoft-windows-terminal
-choco install spotify
+#choco install spotify
 choco install tor-browser
 choco install rufus
 #version
-#choco install jdk11
-choco install anaconda3
-choco install discord.install
-choco install jetbrainstoolbox
-choco install javaruntime
-choco install advanced-ip-scanner
-choco install gitkraken
-choco install droidcamclient
-choco install garmin-express
-choco install laragon.install
-choco install protonvpn
-choco install recuva
-choco install speedtest
-choco install signal
+choco install jdk11
+#choco install anaconda3
+#choco install discord.install
+#choco install jetbrainstoolbox
+#choco install javaruntime
+#choco install advanced-ip-scanner
+#choco install gitkraken
+#choco install droidcamclient
+#choco install garmin-express
+#choco install laragon.install
+#choco install protonvpn
+#choco install recuva
+#choco install speedtest
+#choco install signal
 
 if ($Desktop.ToUpper() -eq "Y") {
     choco install evoluentmousemanager
@@ -59,13 +59,13 @@ if ($Desktop.ToUpper() -eq "Y") {
 
 
 #nog meer doen?
-choco install wsl-ubuntu-1804
+#choco install wsl-ubuntu-1804
 
 #choco install scenebuilder9
 
-choco install protonvpn
+#choco install protonvpn
 
-choco install mysql
+#choco install mysql
 
 #todo: kaspersky
 #todo: Garmin
