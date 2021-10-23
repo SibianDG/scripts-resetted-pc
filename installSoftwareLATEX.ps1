@@ -21,5 +21,26 @@ choco install -y texstudio   # LaTeX IDE
 choco install -y JabRef      # Bibliografische databank
 
 # Applicaties voor R
-choco install -y r.project   # De R programmeertaal
-choco install -y r.studio    # IDE voor R
+#choco install -y r.project   # De R programmeertaal
+#choco install -y r.studio    # IDE voor R
+
+
+# Install fonts voor HoGent
+
+# Configure TexStudio
+# Commands:
+# Latexmk: latexmk -xelatex -shell-escape -synctex=1 -interaction=nonstopmode -file-line-error %
+# XeLaTex: xelatex.exe -synctex=1 -interaction=nonstopmode -shell-escape %.tex
+
+# Build >
+# Build & view: compile & view
+# Standard compiler: Latexmk
+# bibliografie: Biber
+
+# Editor >
+# Change double quotes: English quotes
+# Show line numbers
+
+# VSC plugin: Latex Workshop van James Yu
+# https://hogent.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=fb48c4c5-846b-49dc-9e14-acad008e1c22
+# 20-24min
