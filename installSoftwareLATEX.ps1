@@ -26,6 +26,9 @@ choco install -y JabRef      # Bibliografische databank
 
 
 # Install fonts voor HoGent
+#https://fonts.google.com/specimen/Montserrat
+#https://www.dafontfree.net/code-pro-black-regular/f62435.htm
+
 
 # Configure TexStudio
 # Commands:
