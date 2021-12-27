@@ -48,6 +48,7 @@ choco install -y protonvpn
 choco install -y recuva
 choco install -y speedtest
 choco install -y signal
+choco install -y rescuetime
 
 if ($Desktop.ToUpper() -eq "Y") {
     choco install -y evoluentmousemanager

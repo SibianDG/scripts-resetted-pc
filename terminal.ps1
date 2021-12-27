@@ -8,3 +8,4 @@ Copy-Item ".\extraFiles\terminal.json" -Destination "C:\Users\sibia\AppData\Loca
 
 # dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 # dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+# Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
